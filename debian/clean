@@ -1,0 +1,5 @@
+META
+config.h
+config.log
+config.status
+libvirt/libvirt_version.ml

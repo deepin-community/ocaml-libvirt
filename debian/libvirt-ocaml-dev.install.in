@@ -1,0 +1,7 @@
+@OCamlStdlibDir@/libvirt/META
+@OCamlStdlibDir@/libvirt/*.ml*
+@OCamlStdlibDir@/libvirt/*.cmi
+@OCamlStdlibDir@/libvirt/*.cma
+@OCamlStdlibDir@/libvirt/*.a
+OPT: @OCamlStdlibDir@/libvirt/*.cmx
+OPT: @OCamlStdlibDir@/libvirt/*.cmxa

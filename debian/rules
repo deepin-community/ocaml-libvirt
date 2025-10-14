@@ -1,4 +1,25 @@
 #!/usr/bin/make -f
 
+include /usr/share/ocaml/ocamlvars.mk
+
+DESTDIR := $(CURDIR)/debian/tmp
+
+DEB_MAKE_BUILD_TARGET    := all
+ifeq ($(OCAML_HAVE_OCAMLOPT),yes)
+DEB_MAKE_BUILD_TARGET    += opt
+DEB_MAKE_INSTALL_TARGET  := install-opt
+else
+DEB_MAKE_INSTALL_TARGET  := install-byte
+endif
+DEB_MAKE_INSTALL_TARGET  += OCAMLFIND_DESTDIR="$(DESTDIR)$(OCAML_STDLIB_DIR)" prefix="$(DESTDIR)/usr"
+
 %:
-	dh $@
+	dh $@ --with ocaml
+
+override_dh_auto_build:
+	$(MAKE) $(DEB_MAKE_BUILD_TARGET)
+
+override_dh_auto_install:
+	mkdir -p "$(DESTDIR)$(OCAML_STDLIB_DIR)" "$(DESTDIR)$(OCAML_DLL_DIR)"
+	$(MAKE) $(DEB_MAKE_INSTALL_TARGET)
+	find $(DESTDIR) -name '*.owner' -delete

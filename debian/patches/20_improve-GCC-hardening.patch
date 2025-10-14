@@ -1,0 +1,23 @@
+From: Joao Eriberto Mota Filho <eriberto@debian.org>
+Date: Thu, 15 Aug 2019 14:29:56 +0200
+Subject: add CPPFLAGS to improve the hardening.
+
+Last-Update: 2016-12-18
+
+===================================================================
+---
+ libvirt/Makefile.in | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/libvirt/Makefile.in b/libvirt/Makefile.in
+index 77462c7..d0bc51b 100644
+--- a/libvirt/Makefile.in
++++ b/libvirt/Makefile.in
+@@ -26,6 +26,7 @@ CFLAGS		= @CFLAGS@ \
+ LDFLAGS		= @LDFLAGS@ \
+ 		   @LIBVIRT_LIBS@
+ #		   -L"$(shell ocamlc -where)"
++CPPFLAGS	= @CPPFLAGS@ -D_FORTIFY_SOURCE=2
+ 
+ OCAMLC		= @OCAMLC@
+ OCAMLOPT	= @OCAMLOPT@

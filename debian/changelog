@@ -1,5 +1,142 @@
-template-repository (1.0-1) unstable; urgency=medium
+ocaml-libvirt (0.6.1.5-2) unstable; urgency=medium
 
-  * Initial release
+  * Team upload
+  * Bump debhelper compat level to 13, and drop dependency on cdbs
+  * Bump Standards-Version to 4.6.2
+  * Add Rules-Requires-Root: no
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Stéphane Glondu <glondu@debian.org>  Mon, 07 Aug 2023 16:18:44 +0200
+
+ocaml-libvirt (0.6.1.5-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+
+ -- Stéphane Glondu <glondu@debian.org>  Wed, 21 Aug 2019 19:44:23 +0200
+
+ocaml-libvirt (0.6.1.4+git20190820.0.34f46b0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream snapshot, needed to compile latest virt-top
+
+ -- Stéphane Glondu <glondu@debian.org>  Wed, 21 Aug 2019 16:53:18 +0200
+
+ocaml-libvirt (0.6.1.4-3) unstable; urgency=medium
+
+  * Team upload
+  * Fix compilation with -safe-string
+  * Update Vcs-*
+
+ -- Stéphane Glondu <glondu@debian.org>  Tue, 20 Aug 2019 07:50:04 +0200
+
+ocaml-libvirt (0.6.1.4-2) unstable; urgency=medium
+
+  [ Stéphane Glondu ]
+  * Team upload
+
+  [ Dimitri John Ledkov ]
+  * Cherrypick upstream patch to use C99 int types.
+
+ -- Stéphane Glondu <glondu@debian.org>  Wed, 19 Jul 2017 10:18:00 +0200
+
+ocaml-libvirt (0.6.1.4-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Migrations:
+      - debian/copyright to 1.0 format.
+      - debian/rules to (new) reduced format.
+      - DebSrc to 3.0.
+      - DH level to 10.
+      - Using dh-autoreconf now (with CDBS).
+  * debian/clean: removed no longer needed files mlvirsh/mlvirsh_gettext.ml and
+    debian/xml-man/en/mlvirsh.1.
+  * debian/control:
+      - Added ocaml-findlib to Depends field.
+      - Bumped Standards-Version to 3.9.8.
+      - Changed Priority from extra to optional.
+      - Deduplicate short and long descriptions.
+      - Removed deprecated field DM-Upload-Allowed.
+      - Removed MIA co-maintainers.
+      - Removed the unneeded minimal version from relationships for dh-ocaml
+        and ocaml-nox build dependencies, because all current versions in
+        Debian, since old-old-stable, are newer.
+      - Updated the Vcs-* fields.
+  * debian/gbp.conf: removed, considering that 'pristine-tar = True' is default
+    for gbp command and subcommands.
+  * debian/patches/:
+      - 10_disable-Werror.patch: created to disable unnecessary option -Werror
+        to avoid a FTBFS.
+      - 20_improve-GCC-hardening.patch: add CPPFLAGS to improve the hardening.
+  * debian/rules:
+      - Added a line to remove the empty usr/bin directory.
+      - Removed some trash.
+  * debian/watch:
+      - Bumped to version 4.
+      - Improved.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Sun, 18 Dec 2016 11:14:24 -0200
+
+ocaml-libvirt (0.6.1.2-1) unstable; urgency=low
+
+  * [e66c65e] Imported Upstream version 0.6.1.2
+  * [730105b] Remove handling of obsolete mlvirsh and gettext support
+  * [1b5674d] Drop redo-patches target from debian/rules
+  * [f0e659c] Add myself as uploader and allow DM upload
+  * [3696ede] Remove unused patch system
+  * [3f9da9c] Bump Standards-Version to 3.9.3
+
+ -- Laurent Léonard <laurent@open-minds.org>  Mon, 16 Apr 2012 02:50:15 +0200
+
+ocaml-libvirt (0.6.1.0-2) unstable; urgency=low
+
+  * Use dh_ocaml 0.9.1 features (dependencies, ocamldoc)
+  * Upgrade Standards-Version to 3.8.3 (no change)
+
+ -- Sylvain Le Gall <gildor@debian.org>  Tue, 08 Dec 2009 23:32:40 +0000
+
+ocaml-libvirt (0.6.1.0-1) unstable; urgency=low
+
+  * New Upstream Version
+  * Add build dependency on libgettext-ocaml-dev
+  * Upgrade standards-version to 3.8.2 (section ocaml)
+  * Tighten build-depends to ease OCaml 3.11.1 transition
+
+ -- Sylvain Le Gall <gildor@debian.org>  Mon, 06 Jul 2009 22:53:40 +0200
+
+ocaml-libvirt (0.4.4.2-1) unstable; urgency=low
+
+  * New Upstream Version
+  * Add debian/gbp.conf
+  * Add dh-ocaml build-dependency (rules/ocaml.mk)
+  * Upgrade debian/compat to 7 (use debian/clean)
+  * Add ${misc:Depends} to dependencies
+
+ -- Sylvain Le Gall <gildor@debian.org>  Sat, 07 Mar 2009 15:50:02 +0100
+
+ocaml-libvirt (0.4.4.1-3) unstable; urgency=low
+
+  * Remove libvirt-bin build dependency which is useless
+
+ -- Sylvain Le Gall <gildor@debian.org>  Sat, 20 Sep 2008 11:05:52 +0200
+
+ocaml-libvirt (0.4.4.1-2) unstable; urgency=low
+
+  * Add dependency to libvirt-dev (Closes: #496333)
+  * Fix removal of manpage in clean target
+
+ -- Sylvain Le Gall <gildor@debian.org>  Sun, 24 Aug 2008 17:51:26 +0200
+
+ocaml-libvirt (0.4.4.1-1) unstable; urgency=low
+
+  [ Guido Guenther ]
+  * Initial release (Closes: #488229)
+
+  [ Sylvain Le Gall ]
+  * Add manpage for mlvirsh
+  * Ship *.mo file
+  * Add a watch file
+  * Update debian/copyright to
+    http://wiki.debian.org/Proposals/CopyrightFormat
+
+ -- Sylvain Le Gall <gildor@debian.org>  Mon, 07 Jul 2008 14:54:44 +0200
