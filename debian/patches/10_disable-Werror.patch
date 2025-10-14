@@ -1,0 +1,24 @@
+From: Joao Eriberto Mota Filho <eriberto@debian.org>
+Date: Thu, 15 Aug 2019 14:29:56 +0200
+Subject: disable unnecessary option -Werror to avoid a FTBFS.
+
+Last-Update: 2016-12-18
+
+===================================================================
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index 6ca44b0..2d39f16 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -34,7 +34,7 @@ dnl Select some C flags based on the host type.
+ AC_CANONICAL_HOST
+ 
+ DEBUG="-g"
+-WARNINGS="-Wall -Werror"
++WARNINGS="-Wall"
+ CFLAGS_FPIC="-fPIC"
+ WIN32=no
+ case "$host" in
